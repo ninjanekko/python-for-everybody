@@ -21,3 +21,17 @@ for line in fh:
 
 print("Average spam confidence:", sum/count)
 
+#UPDATED APR 13 2022: without using sum() function 
+fname = input("Enter file name: ")
+fh = open(fname)
+total = 0.0
+count = 0
+
+for line in fh:
+        if not line.startswith("X-DSPAM-Confidence:") :
+                continue
+        else:
+                total = total + float(line[20:])
+                count = count + 1
+
+print("Average spam confidence:", total/count)
